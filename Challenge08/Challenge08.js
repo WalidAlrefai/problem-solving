@@ -140,30 +140,27 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-  
   let newArr =[]
   
   for(let i = 0 ; i<arr.length ; i++){
       
-    
     var obj ={
       Student : "",
       course: "",
       }
-    courses.forEach(element => {
+    courses.forEach(course => {
      
-      for(let j =0 ; j < element.Students.length ; j++){
-        if(arr[i] == element.Students[j]){
-          obj.Student = arr[i];
-          obj.course = element.course ;
-        }
+      course.Students.forEach(info => {
+        if(info == arr[i]){
+         obj.Student = arr[i];
+          obj.course = course.course ;
+        
         newArr.push(obj);
-      }
-      
+        }
+      });
     });
   }
   return newArr;
-
 };
 
 module.exports = {
