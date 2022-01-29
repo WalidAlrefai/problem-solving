@@ -307,11 +307,12 @@ const classesAvg = (data) => {
             for(let k=0 ; k < data.grades[i].classes[j].classScores.length ; k++ ){
                 sum +=data.grades[i].classes[j].classScores[k]; 
             }
-            data.grades[i].classes[j].classScores.avg= sum/ data.grades[i].classes[j].classScores.length
-            return  Math.floor(data.grades[i].classes[j].classScores.avg)
+            data.grades[i].classes[j].avg=Math.floor( sum/ data.grades[i].classes[j].classScores.length)
+            
 
         }
     }
+    return data
 };
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
